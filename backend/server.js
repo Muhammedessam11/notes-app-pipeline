@@ -13,8 +13,11 @@ const db = mysql.createConnection({
 });
 
 db.connect((err) => {
-  if (err) throw err;
-  console.log("Connected to the database.");
+  if (err) {
+    console.error("Failed to connect to the database:", err.message);
+  } else {
+    console.log("Connected to the database.");
+  }
 });
 
 app.get("/notes", (req, res) => {
