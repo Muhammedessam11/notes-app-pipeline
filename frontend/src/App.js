@@ -5,13 +5,13 @@ function App() {
   const [newNote, setNewNote] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/notes")
+    fetch("http://backend:5000/notes")
       .then((res) => res.json())
       .then((data) => setNotes(data));
   }, []);
 
   const addNote = () => {
-    fetch("http://localhost:5000/notes", {
+    fetch("http://backend:5000/notes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ note: newNote })
